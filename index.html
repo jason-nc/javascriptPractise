@@ -1,0 +1,209 @@
+<html>
+	<head>
+		<title>Practise with Javascript</title>
+      		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+		<script src="Demo/Bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var joker = jQuery.noConflict();
+			joker(function(){
+				joker("#ajaxMarkit").click(function(){
+					joker.ajax({
+						url: "http://dev.markitondemand.com/Api/v2/Quote/jsonp",
+						method: "GET",
+						data: {
+							"symbol" : joker("#txtTickerMarkit").val()
+						},
+						dataType : "jsonp",
+						error: function( jqXHR, textStatus, errorThrown){
+							joker("p").remove(".pMarkit");
+							var txtError = '<p class="pMarkit">jqXHR: ' + jqXHR + " Status: " + textStatus + " Error Thrown: " + errorThrown + "</p>";
+							joker("#markitResult").append(txtError);
+						},
+						success: function(data, textStatus, jqXHR){
+							joker("p").remove(".pMarkit");
+							var parsedData = JSON.parse(JSON.stringify(data));
+							var strResult = '<p class="pMarkit">Status: ' + parsedData.Status + '</p>';
+							strResult += '<p class="pMarkit">Name: ' + parsedData.Name + '</p>';
+							strResult += '<p class="pMarkit">Ticker: ' + parsedData.Symbol + '</p>';
+							strResult += '<p class="pMarkit">Last Price: ' + parsedData.LastPrice + '</p>';
+							strResult += '<p class="pMarkit">Change: ' + parsedData.Change + '</p>';
+							strResult += '<p class="pMarkit">Change Percent: ' + parsedData.ChangePercent + '</p>';
+							strResult += '<p class="pMarkit">Time Stamp: ' + parsedData.TimeStamp + '</p>';
+							strResult += '<p class="pMarkit">MS Date: ' + parsedData.MSDate + '</p>';
+							strResult += '<p class="pMarkit">Market Cap: ' + parsedData.MarketCap + '</p>';
+							strResult += '<p class="pMarkit">Volume: ' + parsedData.Volume + '</p>';
+							strResult += '<p class="pMarkit">Change YTD: ' + parsedData.ChangeYTD + '</p>';
+							strResult += '<p class="pMarkit">Change Percent YTD: ' + parsedData.ChangePercentYTD + '</p>';
+							strResult += '<p class="pMarkit">High: ' + parsedData.High + '</p>';
+							strResult += '<p class="pMarkit">Low: ' + parsedData.Low + '</p>';
+							strResult += '<p class="pMarkit">Open: ' + parsedData.Open + '</p>';
+							joker("#markitResult").append(strResult);
+						}
+					});
+				});
+				joker("#ajaxButton").click(function(){
+					joker.ajax({
+						url: "https://www.google.com/finance/info",
+						method: "GET",
+						data: {
+							"q" : "NYSE:" + joker("#txtTicker").val(),
+							"client" : "ig"							
+						},
+						dataType:"jsonp",
+						error: function( jqXHR, textStatus, errorThrown){
+							joker("p").remove(".pGoogle");
+							var txtError = '<p class="pGoogle">Inforamation for ' + joker("#txtTicker").val() + " was not found</p>";
+							txtError += '<p class="pGoogle">Error Infomation : ' + jqXHR.status + "</p>";
+							txtError += '<p class="pGoogle">Status: ' + textStatus + "</p>";
+							txtError += '<p class="pGoogle">Error Thrown: ' + errorThrown + "</p>";
+							joker("#ajaxResult").append(txtError);
+						},
+						success: function(data, textStatus, jqXHR){
+							var parsedData = JSON.stringify(data).replace("[", "");
+							parsedData = parsedData.replace("]", "");
+							var x = JSON.parse(parsedData);
+							joker("p").remove(".pGoogle");
+							joker("#ajaxResult").append('<p class="pGoogle">Date: ' + x.lt + "</p>");
+							joker("#ajaxResult").append('<p class="pGoogle">Ticker: ' + x.t + "</p>");
+							joker("#ajaxResult").append('<p class="pGoogle">Exchange: ' + x.e + "</p>");
+							joker("#ajaxResult").append('<p class="pGoogle">Last price: ' + x.l + "</p>");
+							joker("#ajaxResult").append('<p class="pGoogle">Price change: ' + x.c + "</p>");
+							joker("#ajaxResult").append('<p class="pGoogle">Percent change: ' + x.cp + "</p>");
+						}
+					});
+				});
+			});
+		</script>
+		<style>
+			 .sectionDescription{
+    				background-repeat: no-repeat;
+    				background-attachment: fixed;
+				background-position: center;
+				height: auto;				
+				width: 900px;
+			}
+			.firstSection{
+    				background-image: url("Demo/Practise/images/13.jpg");
+			}
+			.secondSection{
+    				background-image: url("Demo/Practise/images/stringBikini.jpg");
+			}
+			.googleSection{
+    				background-image: url("Demo/Practise/images/26.jpg");
+			}
+			.markitSection{
+    				background-image: url("Demo/Practise/images/34.jpg");
+			}
+			.sliderSection{
+    				background-image: url("Demo/Practise/images/17.jpg");
+			}
+			.bootstapSection{
+    				background-image: url("Demo/Practise/images/35.jpg");
+			}
+			.angularSection{
+    				background-image: url("Demo/Practise/images/29.jpg");
+			}
+			#ajaxButton:hover{
+				cursor: pointer;
+			}
+			.mainHeader{
+				margin: 0 auto 0 auto;
+				width: 30%;
+			}
+			.subHeader{
+				margin: 0 auto 0 auto;
+				width: 85%;
+			}
+			#mainSection{
+				max-width: 950px;
+				margin: 0 auto 0 auto;
+			}
+			#googleHeader{
+				margin: 0 auto 0 auto;
+				width: 40%;
+				color: #F2F2F2;
+			}
+			.subBackGround{
+				margin: 0 auto 0 auto;
+				width: 45%;
+				text-align: center;
+				color: #F2F2F2;
+			}
+			.centerP{
+				margin: 0 auto 0 auto;
+				width: 45%;
+				text-align: center;
+				color: #F2F2F2;
+			}
+			body{
+				background-color: #A4A4A4;
+				font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
+			}
+			.row{
+				margin-top: 5px;
+				min-height: 100px;
+			}
+			a {
+    				color: #FF0000;
+			}	
+		</style>
+	</head>
+	<body>
+		<section id="mainSection">
+			<header class="Header">
+				<h1 class="mainHeader">Javascript Experiments</h1>
+				<h3 class="subHeader">Here are some examples of my experience with vanilla javascript, jQuery, Bootstrap, and AngularJs</h3>
+			</header>
+			<section class="container">
+				<article class="row sectionDescription googleSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Simple example of using jQuery to retieve data</span></h1>
+					</head>
+					<p class="centerP"><span class="subBackGround">Google finance info</span></p>
+					<p class="centerP"><span class="subBackGround">Ticker: <input type="text" id="txtTicker"/> - <button type="button" id="ajaxButton">Click</button></span></p>
+					<div id="ajaxResult" class="subBackGround"/>
+				</article>
+				<article class="row sectionDescription markitSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Another simple example of using jQuery to retieve data</span></h1>
+					</head>
+					<p class="centerP">Markit on Demand</p>
+					<p class="centerP">Enter Ticker: <input type="text" name="txtTicker" id="txtTickerMarkit"/> - <button type="button" id="ajaxMarkit">Click</button></p>
+					<div id="markitResult" class="subBackGround"/>
+				</article>
+				<article class="row sectionDescription firstSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Tic Toe game implemented with jQuery</span></h1>
+					</head>
+					<p class="centerP">I am currently working on my own decision algorithm.</p>
+					<p class="centerP">I could use the minimax algorithm</p>
+					<p class="centerP"><a href="Demo/TicTacToe/tactoe.html">Try the game.</a></p>
+				</article>
+				<article class="row sectionDescription sliderSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Example of sliders, and menus with jQuery and css</span></h1>
+					</head>
+					<p class="centerP">Experiments I did with sliders.</p>
+					<p class="centerP">Created the menu bar with just css</p>
+					<p class="centerP"><a href="Demo/Practise/index.html">Have a look</a></p>
+				</article>
+				<article class="row sectionDescription bootstapSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Example of using bootstrap</span></h1>
+					</head>
+					<p class="centerP">Creating zoom boxes require the images to be set sizes</p>
+					<p class="centerP">since the images demensions on the screen can not be abtained after the page load.</p>
+					<p class="centerP"><a href="Demo/Bootstrap/index.html">Have a look</a></p>
+				</article>
+				<article class="row sectionDescription angularSection">
+					<head>
+						<h1 id="googleHeader"><span class="subBackGround">Example of using Angular</span></h1>
+					</head>
+					<p class="centerP">Use AngularJs to retrieve information from Markit on Demand</p>
+					<p class="centerP"><a href="Demo/AngularJs/index.html">Have a look</a></p>
+				</article>
+			</section>
+		</section>
+	</body>
+</html>

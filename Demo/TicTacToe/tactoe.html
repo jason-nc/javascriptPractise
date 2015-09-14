@@ -1,0 +1,462 @@
+<html>
+	<head>
+		<title>Tic Tac Toe</title>
+		<style>
+			table{
+				border-collapse:collapse;
+				border:1px solid #FF0000;
+				width: 400px;
+				height: 400px;
+			}
+
+			table td{
+				border:1px solid #FF0000;
+				padding-left: 15%;
+			}
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type='text/javascript'></script>
+		<script>
+			//<![CDATA[  
+				var $jc = jQuery.noConflict();
+				$jc(function(){
+					var nextMove = '1_1';
+					$jc('#ticTacToe td').click(
+						function(){ 							
+							if('X' == $jc(this).html()){
+								alert('You already pick this dumbass');
+							}else if('O' == $jc(this).html()){
+								alert('I already pick this dumbass');
+							}else{
+								$jc(this).html('X');
+								if(!updateWeights($jc(this).attr('id'))){
+									$jc('#' + nextMove).html('O');
+									$jc('#' + nextMove).attr('dataWeight', '0');
+									if(checkIfWon(nextMove)){
+										alert('I think I here your mom calling, Loser!!!!');
+										return false;
+									}
+								}else{
+									alert('You won! :( I do not want to live anymore');
+									return false;
+								}
+							}
+						}
+					);
+					$jc('#ticTacToe td').on('tap',
+						function(){ 							
+							if('X' == $jc(this).html()){
+								alert('You already pick this dumbass');
+							}else if('O' == $jc(this).html()){
+								alert('I already pick this dumbass');
+							}else{
+								$jc(this).html('X');
+								if(!updateWeights($jc(this).attr('id'))){
+									$jc('#' + nextMove).html('O');
+									$jc('#' + nextMove).attr('dataWeight', '0');
+									if(checkIfWon(nextMove)){
+										alert('I think I here your mom calling, Loser!!!!');
+										return false;
+									}
+								}else{
+									alert('You won! :( I do not want to live anymore');
+									return false;
+								}
+							}
+						}
+					);
+					function checkIfWon(coordinates){
+						var newX;
+						var newY;
+						var newXDown;
+						var newYLeft;
+						var coords = coordinates.split('_');
+						var x = coords[0];
+						var y = coords[1];
+						if(x + '_' + y == nextMove){
+							$jc('#' + nextMove).attr('dataWeight', '0');
+						}
+						var a = 0;
+						var b = 0;
+						var c = 0;
+						var d = 0;
+						var e = 0;
+						var f = 0;
+						var g = 0;
+						var h = 0;
+						for(var index = 1; index < 3; index++){
+							newXUp = parseInt(x) + index;
+							newYRight = parseInt(y) + index;
+							newXDown = parseInt(x) - index;
+							newYLeft = parseInt(y) - index;
+							$jc('#' + x + '_' + y).attr('dataWeight','0');
+							if(newXUp < 3){	
+								if('O' == $jc('#' + newXUp + '_' + y).html()){
+									a++;
+								}
+							}
+
+							if(newXDown > -1){
+								if('O' == $jc('#' + newXDown + '_' + y).html()){
+									b++;
+								}
+							}
+
+							if(newYLeft > -1 ){
+								if('O' == $jc('#' + x + '_' + newYLeft).html()){
+									c++;
+								}
+							}
+
+							if(newYRight < 3 ){
+								if('O' == $jc('#' + x + '_' + newYRight).html()){
+									d++;
+								}
+							}
+
+							if(newYRight < 3 && newXUp < 3){
+								if('O' == $jc('#' + newXUp + '_' + newYRight).html()){
+									e++;
+								}
+							}
+
+							if(newYRight < 3 && newXDown > -1){
+								if('O' == $jc('#' + newXDown + '_' + newYRight).html()){
+									f++;
+								}
+							}
+
+							if(newYLeft > -1 && newXDown > -1){
+								if('O' == $jc('#' + newXDown + '_' + newYLeft).html()){
+									g++;
+								}
+							}
+
+							if(newYLeft > -1 && newXUp < 3){
+								if('O' == $jc('#' + newXUp + '_' + newYLeft).html()){
+									h++;
+								}
+							}
+						}
+
+						if(a == 1){
+							if(b == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(a == 2){
+							return true;
+						}else if(b == 1){
+							if(a == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(b == 2){
+							return true;
+						}else if(c == 1){
+							if(d == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(c == 2){
+							return true;
+						}else if(d == 1){
+							if(c == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(d == 2){
+							return true;
+						}else if(e == 1){
+							if(g == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(e == 2){
+							return true;
+						}else if(f == 1){
+							if(h == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(f == 2){
+							return true;
+						}else if(g == 1){
+							if(e == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(g == 2){
+							return true;
+						}else if(h == 1){
+							if(f == 1){
+								return true;
+							}else{
+								return false;
+							}
+						}else if(h == 2){
+							return true;
+						}
+						return false;
+					}
+					function updateWeights(coordinates){
+						var newX;
+						var newY;
+						var newXDown;
+						var newYLeft;
+						var tempMoveA;
+						var tempMoveB;
+						var tempMoveC;
+						var tempMoveD;
+						var tempMoveE;
+						var tempMoveF;
+						var tempMoveG;
+						var tempMoveH;
+						var coords = coordinates.split('_');
+						var x = coords[0];
+						var y = coords[1];
+						if(x + '_' + y == nextMove){
+							$jc('#' + nextMove).attr('dataWeight', '0');
+						}
+						var a = 0;
+						var b = 0;
+						var c = 0;
+						var d = 0;
+						var e = 0;
+						var f = 0;
+						var g = 0;
+						var h = 0;
+						for(var index = 1; index < 3; index++){
+							newXUp = parseInt(x) + index;
+							newYRight = parseInt(y) + index;
+							newXDown = parseInt(x) - index;
+							newYLeft = parseInt(y) - index;
+							$jc('#' + x + '_' + y).attr('dataWeight','0');
+							if(newXUp < 3){	
+								if(updateWeight(newXUp, y)){
+									a++;
+									if(a == 1 && index == 2){
+										newXUp = newXUp - 1;
+										tempMoveA = newXUp + '_' + y;
+									}
+								}else{
+									tempMoveA = newXUp + '_' + y;
+								}
+							}
+
+							if(newXDown > -1){
+								if(updateWeight(newXDown, y)){
+									b++;
+									if(b == 1 && index == 2){
+										newXDown = newXDown + 1;
+										tempMoveB = newXDown + '_' + y;
+									}
+								}else{
+									tempMoveB = newXDown + '_' + y;
+								}
+							}
+
+							if(newYLeft > -1 ){
+								if(updateWeight(x, newYLeft)){
+									c++;
+									if(c == 1 && index == 2){
+										newYLeft = newYLeft + 1;
+										tempMoveC = x + '_' + newYLeft;
+									}
+								}else{
+									tempMoveC = x + '_' + newYLeft;
+								}
+							}
+
+							if(newYRight < 3 ){
+								if(updateWeight(x, newYRight)){
+									d++;
+									if(d == 1 && index == 2){
+										newYRight = newYRight - 1;
+										tempMoveD = x + '_' + newYRight;
+									}
+								}else{
+									tempMoveD = x + '_' + newYRight;
+								}
+							}
+
+							if(newYRight < 3 && newXUp < 3){
+								if(updateWeight(newXUp, newYRight)){
+									e++;
+									if(e == 1 && index == 2){
+										newXUp = newXUp - 1;
+										newYRight = newYRight - 1;
+										tempMoveE = newXUp + '_' + newYRight;
+									}
+								}else{
+									tempMoveE = newXUp + '_' + newYRight;
+								}
+							}
+
+							if(newYRight < 3 && newXDown > -1){
+								if(updateWeight(newXDown, newYRight)){
+									f++;
+									if(f == 1 && index == 2){
+										newXDown = newXDown + 1;
+										newYRight = newYRight - 1;
+										tempMoveF = newXDown + '_' + newYRight;
+									}
+								}else{
+									tempMoveF = newXDown + '_' + newYRight;
+								}
+							}
+
+							if(newYLeft > -1 && newXDown > -1){
+								if(updateWeight(newXDown, newYLeft)){
+									g++;
+									if(g == 1 && index == 2){
+										newXDown = newXDown + 1;
+										newYLeft = newYLeft + 1;
+										tempMoveG = newXDown + '_' + newYLeft;
+									}
+								}else{
+									tempMoveG = newXDown + '_' + newYLeft;
+								}
+							}
+
+							if(newYLeft > -1 && newXUp < 3){
+								if(updateWeight(newXUp, newYLeft)){
+									h++;
+									if(h == 1 && index == 2){
+										newXUp = newXUp - 1;
+										newYLeft = newYLeft + 1;
+										tempMove = newXUp + '_' + newYLeft;
+									}
+								}else{
+									tempMove = newXUp + '_' + newYLeft;
+								}
+							}
+						}
+
+//alert('nextMove: ' + nextMove + ' tempMoveA: ' + tempMoveA + ' a: ' + a + ' b: ' + b + ' c: ' + c + ' d: ' + d + ' e: ' + e + ' f: ' + f + ' g: ' + g + ' h: ' + h);
+						if(a == 1){
+							if(b == 1){
+								return true;
+							}else{
+								nextMove = tempMoveA;
+								return false;
+							}
+						}else if(a == 2){
+							return true;
+						}else if(b == 1){
+							if(a == 1){
+								return true;
+							}else{
+								nextMove = tempMoveB;
+								return false;
+							}
+						}else if(b == 2){
+							return true;
+						}else if(c == 1){
+							if(d == 1){
+								return true;
+							}else{
+								nextMove = tempMoveC;
+								return false;
+							}
+						}else if(c == 2){
+							return true;
+						}else if(d == 1){
+							if(c == 1){
+								return true;
+							}else{
+								nextMove = tempMoveD;
+								return false;
+							}
+						}else if(d == 2){
+							return true;
+						}else if(e == 1){
+							if(g == 1){
+								return true;
+							}else{
+								nextMove = tempMoveE;
+								return false;
+							}
+						}else if(e == 2){
+							return true;
+						}else if(f == 1){
+							if(h == 1){
+								return true;
+							}else{
+								nextMove = tempMoveF;
+								return false;
+							}
+						}else if(f == 2){
+							return true;
+						}else if(g == 1){
+							if(e == 1){
+								return true;
+							}else{
+								nextMove = tempMoveG;
+								return false;
+							}
+						}else if(g == 2){
+							return true;
+						}else if(h == 1){
+							if(f == 1){
+								return true;
+							}else{
+								nextMove = tempMoveH;
+								return false;
+							}
+						}else if(h == 2){
+							return true;
+						}
+						return false;
+					}
+					function updateWeight(x, y){
+						if('X' != $jc('#' + x + '_' + y).html() && 'O' != $jc('#' + x + '_' + y).html()){
+							$jc('#' + x + '_' + y).attr('dataWeight', parseInt($jc('#' + x + '_' + y).attr('dataWeight')) + 1);
+							if(parseInt($jc('#' + x + '_' + y).attr('dataWeight')) > parseInt($jc('#' + nextMove).attr('dataWeight'))){
+								nextMove = x + '_' + y;
+							}
+							return false;
+						}else if('X' == $jc('#' + x + '_' + y).html()){
+							return true;
+						}else{
+							return false;
+						}
+					}						
+    				});
+			//]]>
+		</script>
+	</head>
+	<body>
+		<table id="ticTacToe">
+			<tr>
+				<td id="0_0" dataWeight="1" Xs="0" Os="0">-</td>
+				<td id="0_1" dataWeight="1" Xs="0" Os="0">-</td>
+				<td id="0_2" dataWeight="1" Xs="0" Os="0">-</td>
+			</tr>
+			<tr>
+				<td id="1_0" dataWeight="1" Xs="0" Os="0">-</td>
+				<td id="1_1" dataWeight="2" Xs="0" Os="0">-</td>
+				<td id="1_2" dataWeight="1" Xs="0" Os="0">-</td>
+			</tr>
+			<tr>
+				<td id="2_0" dataWeight="1" Xs="0" Os="0">-</td>
+				<td id="2_1" dataWeight="1" Xs="0" Os="0">-</td>
+				<td id="2_2" dataWeight="1" Xs="0" Os="0">-</td>
+			</tr>
+		</table>
+		<div id="nextMove">
+			<p>Next Move</p>
+			<p id="pNextMove"></p>
+		</div>
+		<div id="tmpMove">
+			<p>Temp Move</p>
+			<p id="pTempMove"></p>
+		</div>
+	</body>
+</html>

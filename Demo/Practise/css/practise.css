@@ -1,3 +1,6 @@
+body{
+	font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
+}
 #mainBody{
 	
 	width: 960px;
@@ -143,6 +146,7 @@
 	border: .5px solid black;
 	padding-left: 2px;
 	padding-right: 2px;
+	width: 100px;
 }
 .menu{
 	display: inline;
