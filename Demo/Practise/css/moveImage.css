@@ -1,0 +1,13 @@
+.draggableImage img{
+	width: 300px;
+	height: 300px;
+}
+
+#moveAroundShow{
+	max-width: 960px;
+	height: 750px;
+}
+
+#moveOne, #moveTwo, #moveThree, #moveFour ,#moveFive ,#moveSix{
+	position: absolute;
+}

@@ -1,0 +1,101 @@
+.sectionDescription{
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	margin-top: 1%;	
+}
+.firstSection{
+	background-image: url("../Practise/images/13.jpg");
+}
+.secondSection{
+	background-image: url("../Practise/images/stringBikini.jpg");
+}
+.googleSection{
+	background-image: url("../Practise/images/26.jpg");
+	background-position: left !important;
+}
+.markitSection{
+	background-image: url("../Practise/images/34.jpg");
+	background-position: 10% 250% !important;
+}
+.sliderSection{
+	background-image: url("../Practise/images/17.jpg");
+}
+.bootstapSection{
+	background-image: url("../Practise/images/35.jpg");
+}
+.angularSection{
+	background-image: url("../Practise/images/29.jpg");
+}
+#ajaxButton:hover{
+	cursor: pointer;
+}
+.mainHeader{
+	//margin: 0 auto 0 auto;
+	//width: 80%;
+	text-align: center;
+	background-image: url("../images/paintBlotches.jpg");
+	font-family: "Lucida Grande";
+	height: 100px;
+	padding-top: .5%;
+}
+.mainTitle{
+	font-size: 50;
+	border: 5px solid white;
+	width: 40%;
+	margin: 0 auto 0 auto;
+	background-color: #81F7F3;
+	//color: #2E64FE;
+	border-radius: 25px;
+	background: linear-gradient(white, blue);
+}
+.subTitle{
+	margin: 0 auto 0 auto;
+	width: 85%;
+	//color: white;
+	font-weight: 700;
+}
+#mainSection{
+	//max-width: 950px;
+	margin: 0 auto 0 auto;
+	background: linear-gradient(white, #2EFE2E);
+}
+#googleHeader{
+	margin: 0 auto 0 auto;
+	width: 40%;
+	//color: #F2F2F2;
+}
+.subBackGround{
+	margin: 0 auto 0 auto;
+	width: 45%;
+	text-align: center;
+	//color: #F2F2F2;
+}
+.centerP{
+	margin: 0 auto 0 auto;
+	width: 45%;
+	text-align: center;
+	//color: #F2F2F2;
+}
+body{
+	//background-color: #A4A4A4;
+	font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
+}
+.row{
+	margin-top: 5px;
+	min-height: 100px;
+}
+	.paddingLeft{
+	padding-left: 5%;
+}
+.sectionHeader{
+	font-weight: 800;
+	font-family: Georgia,"Times New Roman",Times,serif;
+}
+.sectionBody{
+	font-family: Georgia,"Times New Roman",Times,serif;
+}
+.mainFooter{
+	background-image: url("../images/scenic.jpg");
+	height: 150px;
+}

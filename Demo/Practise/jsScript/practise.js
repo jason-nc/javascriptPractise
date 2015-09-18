@@ -13,7 +13,7 @@ joker(function(){
 	var halfHeight = slideContainer.height() /2;
 
 	var slider = joker('#mainSlider');
-	var allSlides = joker('.slide');
+	var allSlides = joker('.slideHome');
 	var currentIndex = 1;
 	var stop = allSlides.length;
 	var width = slideContainer.width();
@@ -21,10 +21,17 @@ joker(function(){
 
 	slider.width(stop * width);
 	prevButton.offset({'top': prevOffSet.top + halfHeight});
-	var nextTop = nextOffSet.top - halfHeight;
+	var nextTop = nextOffSet.top - halfHeight - 10;
 	nextButton.offset({'top': nextTop});
 	nextButton.offset({'left': slideContainerOffset.left + width - 21});
-
+	joker( window ).resize(function() {
+		var slideContainerOffset = slideContainer.offset();
+		var width = slideContainer.width();
+		var halfHeight = slideContainer.height() /2;
+		var nextTop = nextOffSet.top - halfHeight - 10;
+		nextButton.offset({'top': nextTop});
+		nextButton.offset({'left': slideContainerOffset.left + width - 21});
+	});
 	nextButton.click(function(){
 		currentIndex++;
 		if(currentIndex <= stop){

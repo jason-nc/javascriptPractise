@@ -11,7 +11,8 @@ $(document).ready(function(){
 	});
         $('#moveOne').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	
 	$('#moveTwo p').mouseover(function(){
@@ -23,7 +24,8 @@ $(document).ready(function(){
 	});
         $('#moveTwo').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	$('#moveThree p').mouseover(function(){
           	$(this).css("cursor","pointer");
@@ -34,7 +36,8 @@ $(document).ready(function(){
 	});
         $('#moveThree').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	$('#moveFour p').mouseover(function(){
           	$(this).css("cursor","pointer");
@@ -45,7 +48,8 @@ $(document).ready(function(){
 	});
         $('#moveFour').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	$('#moveFive p').mouseover(function(){
           	$(this).css("cursor","pointer");
@@ -56,7 +60,8 @@ $(document).ready(function(){
 	});
         $('#moveFive').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	$('#moveSix p').mouseover(function(){
           	$(this).css("cursor","pointer");
@@ -67,7 +72,8 @@ $(document).ready(function(){
 	});
         $('#moveSix').mouseup(function() {
           	$(this).unbind('mousemove');
-		$(this).css({'z-index' : '-1'});
+		$(this).css({'z-index' : '2'});
+		$(this).siblings().css({'z-index' : '1'});
         });
 	function moveAround(event, currentElement){
           	x1 = event.clientX;

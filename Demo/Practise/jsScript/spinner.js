@@ -1,6 +1,5 @@
 var degree = 0;
 $(document).ready(function(){
-/*
 	$('#spinner').mouseover(function(){
 		$('#spinner').css({'transform' : 'rotateX(' + degree + 'deg) rotateY(' + degree + 'deg)'});
 		degree = degree + 5;
@@ -8,6 +7,7 @@ $(document).ready(function(){
 			degree = 0;
 		}
 	});
+/*
 	var interval;
 	function startSpinner(){
 		interval = setInterval(function(){

@@ -1,0 +1,81 @@
+
+#showCaseContainer{
+	width: 100%;
+	height: 300px;
+}
+
+#showCase{
+	border: 1px solid black;
+	width: 18%;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+#showCaseScreen1{
+	width: 50%;
+	position: absolute;
+	background-color: white;
+	z-index: 7;
+}
+
+#showCaseScreen2{
+	width: 50%;
+	position: absolute;
+	background-color: white;
+	z-index: 7;
+	margin-left: 50%;
+	top: 200px;
+}
+#showCase img{
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+}
+
+#selectShowCase{
+	border: 1px solid black;
+	width: 80%;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	float: left;
+}
+
+#selectShowCase ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+#selectShowCase ul li{
+	display: inline;
+	position: relative;
+}
+
+#selectShowCase ul li img{
+	width: 25px;
+	height: 50px;
+}
+
+#prev img, #next img{
+	width: 25px;
+	height: 25px;
+	z-index: 2;
+}
+
+#prev:hover, #next:hover{
+	cursor: pointer;
+}
+
+#prev{
+	float: left;
+}
+
+
+#showCaseNav{
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
