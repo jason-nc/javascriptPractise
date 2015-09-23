@@ -1,0 +1,106 @@
+body{
+	background: linear-gradient(to left, #FA8258, #58D3F7);
+}
+.imgLogo img{
+	width: 150px;
+	height: 150px;
+}
+.img-zoom{
+	width: 150px;
+	height: 150px;
+}
+.img-zoom-box{
+	object-fit: cover;
+	object-position: 0px 0px;
+	width: 750px;
+	height: 750px;
+	display: none;	
+}
+.zoom-box{
+	position: absolute;
+	left: 80%;
+	padding-left: 0px;
+	top: 0px;
+	overflow: hidden;
+	width: 150px;
+	height: 150px;
+	z-index: -10;
+}
+.modal-body img:hover, .img-zoom:hover{
+	transform: scale(1.1);
+	-moz-transform: scale(1.1);
+}
+.modal-body img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: auto;
+	transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	max-width: 400px;
+	max-height: 400px;
+}
+.LogoTitle{
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+}
+.centerA{
+	margin-left: auto;
+	margin-right: auto;
+	width: 6em
+}
+.centerDiv{
+	text-align: center;
+}
+.spinY {
+	cursor: pointer;
+	transform-style: preserve-3d;
+}
+.spinY:hover {
+	animation: spinY 5s linear infinite;
+}
+@keyframes spinY {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+.spinX {
+	cursor: pointer;
+	transform-style: preserve-3d;
+}
+.spinX:hover {
+	animation: spinX 5s linear infinite;
+}
+@keyframes spinX {
+	0% {
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(360deg);
+	}
+}
+.spinZ {
+	cursor: pointer;
+	transform-style: preserve-3d;
+}
+.spinZ:hover {
+	animation: spinZ 5s linear infinite;
+}
+@keyframes spinZ {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+.subTitle{
+	margin: 0 auto 0 auto;
+	width: 50%;
+	font-weight: 700;
+	font-size: 25px;
+}
