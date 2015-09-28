@@ -13,20 +13,19 @@ joker(function(){
 				var txtError = '<p class="pMarkit">jqXHR: ' + jqXHR + " Status: " + textStatus + " Error Thrown: " + errorThrown + "</p>";
 				joker("#markitResult").append(txtError);
 			},
-				success: function(data, textStatus, jqXHR){
+			success: function(data, textStatus, jqXHR){
 				joker("p").remove(".pMarkit");
 				var parsedData = JSON.parse(JSON.stringify(data));
 				var strResult = '<p class="pMarkit">Status: ' + parsedData.Status + '</p>';
 				strResult += '<p class="pMarkit">' + parsedData.Symbol + ': ' + parsedData.Name + '<br/>';
+				strResult += 'Open: ' + formatDollar(parsedData.Open) + '</p>';
 				strResult += 'Last Price: ' + formatDollar(parsedData.LastPrice) + '<br/>';
+				strResult += 'Range: ' + formatDollar(parsedData.Low) + ' - ' + formatDollar(parsedData.High) + '<br/>';
 				strResult += formatDollar(parsedData.Change) + ' | ' + parsedData.ChangePercent.toFixed(2) + '%<br/>';
 				strResult += 'Market Cap: ' + formatDollar(parsedData.MarketCap) + '<br/>';
 				strResult += 'Volume: ' + addCommas(parsedData.Volume) + '<br/>';
-				strResult += 'Change YTD: ' + formatDollar(parsedData.ChangeYTD) + '<br/>';
-				strResult += 'Change % YTD: ' + parsedData.ChangePercentYTD.toFixed(2) + '%<br/>';
-				strResult += 'High: ' + formatDollar(parsedData.High) + '<br/>';
-				strResult += 'Low: ' + formatDollar(parsedData.Low) + '<br/>';
-				strResult += 'Open: ' + formatDollar(parsedData.Open) + '</p>';
+				strResult += 'Change YTD: ' + formatDollar(parsedData.ChangeYTD) + ' | ' + parsedData.ChangePercentYTD.toFixed(2) + '%<p/>';
+				strResult += 'Change % YTD: ' + 
 				joker("#markitResult").append(strResult);
 			}
 		});

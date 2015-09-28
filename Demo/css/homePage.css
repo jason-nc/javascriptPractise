@@ -3,92 +3,71 @@
 	background-attachment: fixed;
 	background-position: center;
 	margin-top: 1%;	
-}
-.firstSection{
-	background-image: url("../Practise/images/13.jpg");
-}
-.secondSection{
-	background-image: url("../Practise/images/stringBikini.jpg");
-}
-.googleSection{
-	background-image: url("../Practise/images/26.jpg");
-	background-position: left !important;
-}
-.markitSection{
-	background-image: url("../Practise/images/34.jpg");
-	background-position: 10% 250% !important;
-}
-.sliderSection{
-	background-image: url("../Practise/images/17.jpg");
-}
-.bootstapSection{
-	background-image: url("../Practise/images/35.jpg");
-}
-.angularSection{
-	background-image: url("../Practise/images/29.jpg");
+	text-align: center;
 }
 #ajaxButton:hover{
 	cursor: pointer;
 }
 .mainHeader{
-	//margin: 0 auto 0 auto;
-	//width: 80%;
+	vertical-align: middle;
 	text-align: center;
 	background-image: url("../images/paintBlotches.jpg");
-	font-family: "Lucida Grande";
-	height: 100px;
-	padding-top: .5%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	//font-family: Consolas,"Liberation Mono",Menlo,Monaco,Courier,monospace;
+	font-family: "PTSansRegular",Arial,Helvetica,sans-serif;
+	height: 150px;
+	padding-top: 2%;
 }
 .mainTitle{
+	vertical-align: middle;
 	font-size: 50;
 	border: 5px solid white;
 	width: 40%;
+	height: 60%;
 	margin: 0 auto 0 auto;
 	background-color: #81F7F3;
-	//color: #2E64FE;
 	border-radius: 25px;
 	background: linear-gradient(white, blue);
 }
 .subTitle{
 	margin: 0 auto 0 auto;
 	width: 85%;
-	//color: white;
 	font-weight: 700;
+	//margin-top: 2%;
+	//margin-bottom: 2%;
 }
 #mainSection{
-	//max-width: 950px;
 	margin: 0 auto 0 auto;
-	background: linear-gradient(white, #2EFE2E);
+	background: linear-gradient(#E0E0F8, white);
 }
 #googleHeader{
 	margin: 0 auto 0 auto;
 	width: 40%;
-	//color: #F2F2F2;
 }
 .subBackGround{
 	margin: 0 auto 0 auto;
 	width: 45%;
 	text-align: center;
-	//color: #F2F2F2;
 }
 .centerP{
 	margin: 0 auto 0 auto;
 	width: 45%;
 	text-align: center;
-	//color: #F2F2F2;
 }
 body{
-	//background-color: #A4A4A4;
-	font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
+	//font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
+	font-family: "PTSansRegular",Arial,Helvetica,sans-serif;
 }
 .row{
 	margin-top: 5px;
 	min-height: 100px;
 }
-	.paddingLeft{
+.paddingLeft{
 	padding-left: 5%;
 }
 .sectionHeader{
+	font-size: 24px;
 	font-weight: 800;
 	font-family: Georgia,"Times New Roman",Times,serif;
 }
@@ -96,6 +75,22 @@ body{
 	font-family: Georgia,"Times New Roman",Times,serif;
 }
 .mainFooter{
-	background-image: url("../images/scenic.jpg");
+	background-color: #424242;
 	height: 150px;
+	margin-top: 2%;
 }
+#filler{
+	background-color: #819FF7;
+	height: auto;
+	min-height: 55px;
+	padding-top: 1%;
+}
+hr {
+    	display: block;
+    	margin-top: 0.5em;
+    	margin-bottom: 0.5em;
+    	margin-left: auto;
+    	margin-right: auto;
+    	border-style: inset;
+    	border-width: 1px;
+} 

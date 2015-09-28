@@ -12,62 +12,73 @@
 	<body>
 		<section id="mainSection">
 			<header class="mainHeader">
-				<h1 class="mainTitle" style="vertical-align:middle">Javascript Experiments</h1>
+				<h1 class="mainTitle">Javascript Experiments</h1>
 			</header>
-			<h3 class="subTitle">Here are some examples of my experience with vanilla javascript, jQuery, Bootstrap, and AngularJs</h3>
+			<div id="filler">
+				<h3 class="subTitle">Here are some examples of my experience with vanilla javascript, jQuery, Bootstrap, and AngularJs</h3>
+			</div>
 			<section class="container">
+				<article class="sectionDescription row">
+					<head>
+						<h4 class="sectionHeader">Tic Toe game implemented with jQuery</h4>
+					</head>
+					<p class="paddingLeft sectionBody">I am currently working on my own decision algorithm.
+					I could use the minimax algorithm<br/>
+					<a href="Demo/TicTacToe/tactoe.html">Try the game.</a></p>
+					<hr>
+				</article>
+				<article class="sectionDescription row">
+					<head>
+						<h4 class="sectionHeader">Example of sliders, and menus with jQuery and css</h4>
+					</head>
+					<p class="paddingLeft sectionBody">Experiments I did with sliders.
+					Created the menu bar with just css<br/>
+					<a href="Demo/Practise/index.html">Have a look</a></p>
+					<hr>
+				</article>
+				<article class="sectionDescription row">
+					<head>
+						<h4 class="sectionHeader">Example of using bootstrap</h4>
+					</head>
+					<p class="paddingLeft sectionBody">Creating zoom boxes require the images to be set sizes
+					since the images demensions on the screen can not be abtained after the page load.<br/>
+					<a href="Demo/Bootstrap/index.html">Have a look</a></p>
+					<hr>
+				</article>
+				<article class="sectionDescription row">
+					<head>
+						<h4 class="sectionHeader">Example of using Angular</h4>
+					</head>
+					<p class="paddingLeft sectionBody">Use AngularJs to retrieve information from Markit on Demand along with HighChart<br/>
+					<a href="Demo/AngularJs/index.html">Have a look</a></p>
+					<hr>
+				</article>
+				<article class="sectionDescription row">
+					<head>
+						<h4 class="sectionHeader">Image Zoom And Clip With jQuery</h4>
+					</head>
+					<p class="paddingLeft sectionBody">Use jQuery to make zoom in box on an image<br/>
+					<a href="Demo/ZoomBox/zoomBox.html">Have a look</a></p>
+					<hr>
+				</article>
 				<article class="row">
-					<article class="col-lg-8">
-						<article class="sectionDescription">
-							<head>
-								<h4 class="sectionHeader">Tic Toe game implemented with jQuery</h4>
-							</head>
-							<p class="paddingLeft sectionBody">I am currently working on my own decision algorithm.
-							I could use the minimax algorithm<br/>
-							<a href="Demo/TicTacToe/tactoe.html">Try the game.</a></p>
-						</article>
-						<article class="sectionDescription">
-							<head>
-								<h4 class="sectionHeader">Example of sliders, and menus with jQuery and css</h4>
-							</head>
-							<p class="paddingLeft sectionBody">Experiments I did with sliders.
-							Created the menu bar with just css<br/>
-							<a href="Demo/Practise/index.html">Have a look</a></p>
-						</article>
-						<article class="sectionDescription">
-							<head>
-								<h4 class="sectionHeader">Example of using bootstrap</h4>
-							</head>
-							<p class="paddingLeft sectionBody">Creating zoom boxes require the images to be set sizes
-							since the images demensions on the screen can not be abtained after the page load.<br/>
-							<a href="Demo/Bootstrap/index.html">Have a look</a></p>
-						</article>
-						<article class="sectionDescription">
-							<head>
-								<h4 class="sectionHeader">Example of using Angular</h4>
-							</head>
-							<p class="paddingLeft sectionBody">Use AngularJs to retrieve information from Markit on Demand along with HighChart<br/>
-							<a href="Demo/AngularJs/index.html">Have a look</a></p>
-						</article>
+					<article class="sectionDescription col-lg-6">
+						<head>
+							<h5 id="googleHeader" class="sectionHeader">Simple example of using jQuery to retieve data</h5>
+						</head>
+						<p class="centerP sectionBody"><span class="subBackGround">Google finance info</span></p>
+						<p class="centerP sectionBody"><span class="subBackGround">Ticker: <input type="text" id="txtTicker"/> <br/> <button type="button" id="ajaxButton">Click</button></span></p>
+						<div id="ajaxResult" class="subBackGround"/>
 					</article>
-					<article class="col-lg-4">
-						<article class="sectionDescription">
-							<head>
-								<h5 id="googleHeader" class="sectionHeader">Simple example of using jQuery to retieve data</h5>
-							</head>
-							<p class="centerP sectionBody"><span class="subBackGround">Google finance info</span></p>
-							<p class="centerP sectionBody"><span class="subBackGround">Ticker: <input type="text" id="txtTicker"/> <br/> <button type="button" id="ajaxButton">Click</button></span></p>
-							<div id="ajaxResult" class="subBackGround"/>
-						</article>
-						<article class="sectionDescription">
-							<head>
-								<h5 id="googleHeader" class="sectionHeader">Another simple example of using jQuery to retieve data</h5>
-							</head>
-							<p class="centerP sectionBody">Markit on Demand</p>
-							<p class="centerP" sectionBody>Enter Ticker: <input type="text" name="txtTicker" id="txtTickerMarkit"/> <br/> <button type="button" id="ajaxMarkit">Click</button></p>
-							<div id="markitResult" class="subBackGround"/>
-						</article>
+					<article class="sectionDescription col-lg-6">
+						<head>
+							<h5 id="googleHeader" class="sectionHeader">Another simple example of using jQuery to retieve data</h5>
+						</head>
+						<p class="centerP sectionBody">Markit on Demand</p>
+						<p class="centerP" sectionBody>Enter Ticker: <input type="text" name="txtTicker" id="txtTickerMarkit"/> <br/> <button type="button" id="ajaxMarkit">Click</button></p>
+						<div id="markitResult" class="subBackGround"/>
 					</article>
+					<hr>
 				</article>
 			</section>
 			<footer class="mainFooter"/>

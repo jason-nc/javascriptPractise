@@ -1,0 +1,55 @@
+body{
+	max-width: 950px;
+	margin: 0 auto 0 auto;
+}
+#quoteLastPriceContainer{
+	float: left;
+}
+#divQuote{
+	padding-left: 15%;
+}
+#quoteLastPrice{
+	font-size: 35px;
+}
+.makeBold{
+	font-weight: 700;
+}
+#mainContainer{
+	background: linear-gradient(white, #F8F8F8);
+}
+#quoteContainer{
+	margin: 0 auto 0 auto;
+	width: 75%
+}
+#quoteName{
+	font-weight: 700;
+	font-size: 20px;
+}
+#tickerInput{
+	padding-left: 5%;
+}
+#quoteHeader{
+	padding-left: 5%;
+}
+.quoteInfo{
+    	border-bottom: 2px solid;
+}
+.quoteInfoRow{
+	background: linear-gradient(to right, #CED8F6, white);
+}
+.quoteLeft{
+	text-align: left;
+}
+.quoteRight{
+	text-align: right;
+	font-weight: 500;
+}
+#quoteChartErrorMessage{
+	margin: 0 auto 0 auto;
+	width: 60%;
+}
+#lookUpTable tr:hover{
+	background-color: red;
+	color: white;
+	cursor: pointer;
+}
