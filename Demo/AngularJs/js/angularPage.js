@@ -133,7 +133,7 @@ MarkitApp.controller('markitGetChartController', function($scope){
 	}
 	$scope.getChart.submitChart();
 });
-MarkitApp.controller('markitLookupController', function($scope){
+MarkitApp.controller('markitLookupController', function($scope, $location){
 	$scope.lookup = {
 			strSearchTerm: readCookie("lastLookup"),
 			params: function(){ 
@@ -145,22 +145,24 @@ MarkitApp.controller('markitLookupController', function($scope){
 					ajaxMarkitQuote("http://dev.markitondemand.com/Api/v2/Lookup/jsonp", $scope.lookup.params(), $scope.lookup.successCallBack);
 					createCookie("lastLookup",$scope.lookup.strSearchTerm,5);
 			},
+			updateCurrentTicker: function(newTicker){
+				createCookie("lastTicker",newTicker,5);
+				joker('#getQuoteLink').trigger('click');
+				$location.url('/getQuote');
+			},
+			listOfChoices: [],
 			successCallBack: function(data){
-					joker("p").remove(".pLookup");
-					joker("table").remove("#lookUpTable");
 					var parsedData = JSON.parse(JSON.stringify(data));
+					$scope.lookup.listOfChoices = [];
 					if(parsedData.Message != 'undefined'){
-						var strResult = '<table id="lookUpTable"><tr><td>Symbol</td><td>Name</td><td>Exchange</td></tr>';
 						joker.each(parsedData, function(key, value){
-							strResult += "<tr><td>" + value.Symbol + "</td><td>" + value.Name + "</td><td>" + value.Exchange + "</td></tr>";
+							$scope.lookup.listOfChoices.push(value);
 						});							
 					}else{
-						strResult += '<p class="pLookup">Message: ' + parsedData.Message + '</p>';
+						$scope.lookup.listOfChoices.push({Name : 'No information found.'});
 					}
-					joker("#divLookup").append(strResult);
 			}
 	}
-	$scope.messageLookup = "It worked.";
 });
 MarkitApp.controller('markitGetQuoteController', function($scope){
 	$scope.getQuote = {
@@ -174,12 +176,12 @@ MarkitApp.controller('markitGetQuoteController', function($scope){
 				return {
 					"parameters" : JSON.stringify({									
 					"Normalized": "false",
-					"NumberOfDays": 5,
+					"NumberOfDays": 1,
 					"EndOffsetDays" : 5,
 					"DataInterval" : 5,
-					"DataPeriod": "Minute",
-					"LabelPeriod" : "Minute",
-					"LabelInterval" : 1,
+					"DataPeriod": "Hour",
+					"LabelPeriod" : "Hour",
+					"LabelInterval" : 5,
 					"Elements": [
 							{
 								"Symbol": readCookie("lastTicker"),

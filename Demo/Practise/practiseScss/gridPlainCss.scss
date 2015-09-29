@@ -1,0 +1,39 @@
+$break-small: 520px;
+#gallery{
+	border: 1px solid black;
+	display: table;
+	width: 90%;
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#gallery div{
+	width: 23%;
+	height: 300px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	
+@media screen and (max-width: $break-small) {
+		width: 100%;
+  	}
+}
+
+#gallery div img{
+	width: 100%;
+	height: 100%;
+}
+
+.column{
+	float: left;
+	
+@media screen and (max-width: $break-small) {
+		float: none;
+  	}
+}
+
+.columnEnd{
+	margin-left: 10px;
+	clear: both;
+	float: left;
+}

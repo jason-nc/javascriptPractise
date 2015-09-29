@@ -1,46 +1,43 @@
-#divSelect select option{
-	height: 30px;
-	padding-top: 10px;
-}
-#divSelect select option:hover{
-	background-image: url("../images/checkMark.jpg");
-	background-repeat: no-repeat;
-	background-position: right; 
-}
-#boostrapSlider{
-	clear: left;
-	height: 200px;
-}
+#divSelect select option {
+  height: 30px;
+  padding-top: 10px; }
 
-#boostrapSlider{
-	margin: 0 auto 0 auto;
-	width:40%;
-	height: 40%;
-}
+#divSelect select option:hover {
+  background-image: url("../images/checkMark.jpg");
+  background-repeat: no-repeat;
+  background-position: right; }
 
-.item img{
-	object-fit: fill;
-	margin: 0 auto 0 auto;
-	width: 500px;
-}
-.item{
-	overflow: hidden;
-	height: 150px;
-	border: 5px solid;
-}
-.bootstrapHeader{
-	text-align: center;
-}
-.extraSytle{
-	top:40%;
-	font-size: 60px;
-	font-weight: 100;
-	color: #FFF;
-	background: #222 non repeat scroll 0% 0%;
-	border: 3px solid #FFF;
-	border-radius: 23px;
-	opacity: 0.5;
-	width: 40px;
-	height: 40px;
-	line-height: 25px;
-}	
+#boostrapSlider {
+  clear: left;
+  height: 200px; }
+
+#boostrapSlider {
+  margin: 0 auto 0 auto;
+  width: 40%;
+  height: 40%; }
+
+.item img {
+  object-fit: fill;
+  margin: 0 auto 0 auto;
+  width: 500px; }
+
+.item {
+  overflow: hidden;
+  height: 150px;
+  border: 5px solid; }
+
+.bootstrapHeader {
+  text-align: center; }
+
+.extraSytle {
+  top: 40%;
+  font-size: 60px;
+  font-weight: 100;
+  color: #FFF;
+  background: #222 non repeat scroll 0% 0%;
+  border: 3px solid #FFF;
+  border-radius: 23px;
+  opacity: 0.5;
+  width: 40px;
+  height: 40px;
+  line-height: 25px; }

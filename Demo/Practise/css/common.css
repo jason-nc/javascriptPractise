@@ -1,79 +1,70 @@
-#mainWrapper{
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-}
+#mainWrapper {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto; }
 
-#mainContent{
-	width: 80%;
-	float: left;
-} 
-#sideBar{
-	width: 20%;
-	float: left;
-	border: 2px solid;
-	border-radius: 25px;
-	padding-left: 1%;
-}
+#mainContent {
+  width: 80%;
+  float: left; }
+  @media screen and (max-width: 520px) {
+    #mainContent {
+      width: 100%;
+      float: none;
+      text-align: center; } }
 
-#sideBar h2{
-	text-align: center;
-	text-decoration: underline;
-}
-#footer{
-	clear: left;	
-	background: linear-gradient(#FFBF00, white);
-}body{
-	font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif;
-}
+#sideBar {
+  width: 20%;
+  float: left;
+  border: 2px solid;
+  border-radius: 25px;
+  padding-left: 1%; }
+  @media screen and (max-width: 520px) {
+    #sideBar {
+      width: 100%;
+      text-align: center; } }
 
-#mainBody{
-	
-	max-width: 960px;
-	
-	margin-right: auto;
-	
-	margin-left: auto;
-	
-	background: linear-gradient(white, #58FA58);
-}
+#sideBar h2 {
+  text-align: center;
+  text-decoration: underline; }
 
+#footer {
+  clear: left;
+  background: linear-gradient(#FFBF00, white); }
 
+body {
+  font-family: "source_sans_proregular",Arial,Helvetica,Tahoma,sans-serif; }
 
-#header{
-	
-	width: 100%;
-	
-	height: 100px;
+#mainBody {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  background: linear-gradient(white, #58FA58); }
 
-	background: linear-gradient(blue, white);
-}
+#header {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(blue, white); }
+  @media screen and (max-width: 520px) {
+    #header {
+      height: auto; } }
 
+#logoText {
+  height: 100%;
+  padding-top: 5%; }
 
+@media screen and (max-width: 520px) {
+  #logoText h1 {
+    font-size: 20px;
+    text-align: center; } }
 
-#logoText{
-	
-	height: 100%;
-	
-	padding-top: 5%;
+#logoIamge {
+  float: left; }
+  @media screen and (max-width: 520px) {
+    #logoIamge {
+      float: none;
+      margin: 0 auto 0 auto;
+      text-align: center; } }
 
-}
-
-
-
-#logoIamge{
-	
-	float: left;
-
-}
-
-
-
-#logoIamge img{
-	
-	width: 175px;
-	
-	height: 100px;
-
-}
-
+#logoIamge img {
+  width: 175px;
+  height: 100px; }

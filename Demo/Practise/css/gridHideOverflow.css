@@ -1,16 +1,19 @@
-#daisyShow{
-	width: 30%;
-	height: 400px;
-	overflow: scroll;
-	margin-left: auto;
-	margin-right: auto;
-}
+#daisyShow {
+  width: 30%;
+  height: 400px;
+  overflow: scroll;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 520px) {
+    #daisyShow {
+      width: 100%; } }
 
-#daisyShow ul{
-	list-style-type: none;
-}
-	
-#daisyShow ul li img{
-	width: 100%;
-	height: auto;
-}
+#daisyShow ul {
+  list-style-type: none; }
+
+#daisyShow ul li img {
+  width: 100%;
+  height: auto; }
+
+#descripionBody {
+  padding: 0 2% 0 2%; }

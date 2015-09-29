@@ -1,79 +1,52 @@
-#sliderContainer{
-	
-	width: 310px;
-	
-	height: 175px;
-	
-	overflow: hidden;
-	
-	margin-left: auto;
-	
-	margin-right: auto;
-	
-	border: 5px solid black;
+#sliderContainer {
+  width: 310px;
+  height: 175px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid black; }
 
-}
+.homeMadeSliderHeader {
+  text-align: center; }
+  @media screen and (max-width: 520px) {
+    .homeMadeSliderHeader {
+      font-size: 25px; } }
 
-.homeMadeSliderHeader{
-	text-align: center;
-}
-#mainSlider{
-	
-	display: block;
-	
-	width: 3000px;
-	
-	height: 175px;
-	
-	margin: 0;
-	
-	padding: 0;
+#mainSlider {
+  display: block;
+  width: 3000px;
+  height: 175px;
+  margin: 0;
+  padding: 0; }
 
-}
+#mainSlider li {
+  list-style-type: none;
+  float: left;
+  width: 300px;
+  height: 175px;
+  object-fit: fill; }
 
+#mainSlider li img {
+  width: 100%;
+  height: 100%; }
 
+#prevButton, #nextButton {
+  position: absolute; }
 
-#mainSlider li{
-	
-	list-style-type: none;
-	
-	float: left;
-	
-	width: 300px;
-	
-	height: 175px;
+#prevButton img, #nextButton img {
+  width: 25px;
+  height: 25px;
+  z-index: 2; }
 
+#prevButton img {
+  position: absolute; }
 
-	object-fit: fill;}
+#nextButton img {
+  position: absolute; }
 
+#prevButton:hover, #nextButton:hover {
+  cursor: pointer; }
 
-
-#mainSlider li img{
-	
-	width: 100%;
-	
-	height: 100%;
-
-}
-
-#prevButton, #nextButton{
-	position: absolute;
-}
-
-#prevButton img, #nextButton img{
-	width: 25px;
-	height: 25px;
-	z-index: 2;
-}
-
-#prevButton img{
-	position: absolute;
-}
-
-#nextButton img{
-	position: absolute;
-}
-
-#prevButton:hover, #nextButton:hover{
-	cursor: pointer;
-}
+@media screen and (max-width: 520px) {
+  .bootstrapHeader {
+    font-size: 25px; } }

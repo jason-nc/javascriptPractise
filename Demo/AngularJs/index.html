@@ -11,7 +11,7 @@
       		<script src = "../Charts/js/highstock.js"></script>
       		<script src = "js/cookie.js"></script>
       		<script src = "js/angularPage.js"></script>
-		<script src="../js/toolBox.js"></script>
+		<script src="../commonJs/toolBox.js"></script>
    	</head>   
 	<body>
 		<header>
@@ -29,7 +29,7 @@
 					<div>
 						<ul class="nav navbar-nav">
 							<li class="active menuItem"><a href="#askForName">Ask For Name</a></li>
-							<li class="menuItem"><a href="#getQuote">Get Quote</a></li>
+							<li class="menuItem"><a id="getQuoteLink" href="#getQuote">Get Quote</a></li>
 							<li class="menuItem"><a href="#getLookup">Lookup</a></li>
 							<li class="menuItem">
             							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,8 +55,21 @@
 			<script type="text/ng-template" id="getLookup.htm">
 				<h2>Look up</h2>
 				<p><input type="text" ng-model="lookup.strSearchTerm" placeholder="Enter Ticker Symbol"/> - <button type="button" ng-click="lookup.submitTicker()">Submit Ticker</button></p>
-				{{messageLookup}}
-				<div id="divLookup"/>
+				<div id="divLookup">
+					<p>There is a bug. First try shows nothing. Second try gives results. So must click button twice.</p>
+					<table id="lookUpTable">
+						<tr>
+							<td>Symbol</td>
+							<td>Name</td>
+							<td>Exchange</td>
+						</tr>
+						<tr ng-repeat="(key,value) in lookup.listOfChoices" ng-click="lookup.updateCurrentTicker(value.Symbol)">
+							<td>{{value.Symbol}}</td>
+							<td>{{value.Name}}</td>
+							<td>{{value.Exchange}}</td>
+						</tr>
+					</table>
+				</div>
 			</script>
 			<script type="text/ng-template" id="getQuote.htm">
 				<h2 id="quoteHeader">Quote</h2>
@@ -69,7 +82,7 @@
 						</div>					
 						<div id="divQuote"/>
 					</div>
-					<!--<div id="divQuoteChart" style="height: 400px; min-width: 310px"></div>-->
+					<div id="divQuoteChart" style="height: 400px; min-width: 310px"></div>
 				</div>
 			</script>
 			<script type="text/ng-template" id="askForName.htm">
