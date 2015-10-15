@@ -110,3 +110,39 @@ gulp.task('watchPractise', function() {
 });
 
 gulp.task('practisePage', ['lintPractise', 'sassPractise', 'scriptsPractise', 'watchPractise']);
+
+//////////////
+// Graphics //
+//////////////
+// Lint Task
+gulp.task('lintGraphics', function() {
+    return gulp.src('Graphics/js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+// Compile Our Sass
+gulp.task('sassGraphics', function() {
+    return gulp.src('Graphics/scss/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('Graphics/css'));
+});
+
+// Concatenate & Minify JS
+gulp.task('scriptsGraphics', function() {
+    return gulp.src('Graphics/js/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('Graphics/js/homePage'))
+        .pipe(rename('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('Graphics/js/homePage'));
+});
+
+// Watch Files For Changes
+gulp.task('watchGraphics', function() {
+    gulp.watch('Graphics/js/*.js', ['lintGraphics', 'scriptsGraphics']);
+    gulp.watch('Graphics/scss/*.scss', ['sassGraphics']);
+});
+
+// Default Task
+gulp.task('Graphics', ['lintGraphics', 'sassGraphics', 'scriptsGraphics', 'watchGraphics']);
