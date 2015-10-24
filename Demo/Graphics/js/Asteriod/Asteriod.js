@@ -11,9 +11,7 @@ function Asteriods(elementId){
 	var asteriods = new Array(3);
 	asteriods[largeAsteriods] = new Array();
 	asteriods[mediumAsteriods] = new Array();
-	asteriods[smallAsteriods] = new Array();
-	ctx.fillStyle = 'rgba(0,0,0,255)';
-	ctx.fillRect(0,0,canvas.width,canvas.height);	
+	asteriods[smallAsteriods] = new Array();	
 	var Left = canvas.offsetLeft;
 	var Top = canvas.offsetTop;
 	var spaceShip;
@@ -22,6 +20,9 @@ function Asteriods(elementId){
 	
 	function init(){
 		gameOver = false;
+  		ctx.clearRect(0,0, canvas.width, canvas.height);
+		ctx.fillStyle = 'rgba(0,0,0,255)';
+		ctx.fillRect(0,0,canvas.width,canvas.height);
 		asteriods[largeAsteriods] = new Array();
 		asteriods[mediumAsteriods] = new Array();
 		asteriods[smallAsteriods] = new Array();
@@ -69,6 +70,11 @@ function Asteriods(elementId){
 			}
 		}
 
+		for(var currentArray = 0; currentArray < asteriods.length; currentArray++){
+			for(i = 0; i < asteriods[currentArray].length; i++){
+				asteriods[currentArray][i].draw();
+			}
+		}
 		//////////////////////////
 		// Check for collisions //
 		//////////////////////////
@@ -82,7 +88,6 @@ function Asteriods(elementId){
 					running = false;
 					gameOver = true;
 				}
-				asteriods[currentArray][i].draw();
 				if(asteriods[currentArray][i].x + asteriods[currentArray][i].radius < 0){
 					asteriods[currentArray][i].x = canvas.width + asteriods[currentArray][i].radius;
 				}else if(asteriods[currentArray][i].x - asteriods[currentArray][i].radius > canvas.width){
@@ -93,7 +98,6 @@ function Asteriods(elementId){
 				}else if(asteriods[currentArray][i].y - asteriods[currentArray][i].radius > canvas.height){
 					asteriods[currentArray][i].y = -asteriods[currentArray][i].radius;
 				}
-				var c = 0;
 				for(var index = 0; index < asteriods.length; index++){
 					for(var subArray = 0; subArray < asteriods[index].length; subArray++){
 						asteriods[currentArray][i].detectAsteriodCollision(asteriods[index][subArray]);
@@ -138,12 +142,12 @@ function Asteriods(elementId){
 					if(laserBeams[i].detectCollisionWithAsteriod(asteriods[index][asteriodIndex])){
 						noHit = false;
 						if(index == largeAsteriods){
-							asteriods[mediumAsteriods].push(new MediumAsteriod(asteriods[index][asteriodIndex].x + asteriods[index][asteriodIndex].radius / 2 , asteriods[index][asteriodIndex].y + asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
-							asteriods[mediumAsteriods].push(new MediumAsteriod(asteriods[index][asteriodIndex].x - asteriods[index][asteriodIndex].radius / 2 , asteriods[index][asteriodIndex].y - asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
+							asteriods[mediumAsteriods].push(new MediumAsteriod(asteriods[index][asteriodIndex].x + asteriods[index][asteriodIndex].radius / 2, asteriods[index][asteriodIndex].y + asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
+							asteriods[mediumAsteriods].push(new MediumAsteriod(asteriods[index][asteriodIndex].x - asteriods[index][asteriodIndex].radius / 2, asteriods[index][asteriodIndex].y - asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
 							asteriods[index].splice(asteriodIndex, 1);
 						}else if(index == mediumAsteriods){
-							asteriods[smallAsteriods].push(new SmallAsteriod(asteriods[index][asteriodIndex].x + asteriods[index][asteriodIndex].radius / 2 , asteriods[index][asteriodIndex].y + asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
-							asteriods[smallAsteriods].push(new SmallAsteriod(asteriods[index][asteriodIndex].x - asteriods[index][asteriodIndex].radius / 2 , asteriods[index][asteriodIndex].y - asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
+							asteriods[smallAsteriods].push(new SmallAsteriod(asteriods[index][asteriodIndex].x + asteriods[index][asteriodIndex].radius / 2, asteriods[index][asteriodIndex].y + asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
+							asteriods[smallAsteriods].push(new SmallAsteriod(asteriods[index][asteriodIndex].x - asteriods[index][asteriodIndex].radius / 2, asteriods[index][asteriodIndex].y - asteriods[index][asteriodIndex].radius / 2, Math.floor(Math.floor(Math.random() * 360) + 1), ctx));
 							asteriods[index].splice(asteriodIndex, 1);
 						}else if(index == smallAsteriods){
 							asteriods[index].splice(asteriodIndex, 1);
@@ -214,9 +218,14 @@ function Asteriods(elementId){
 	canvas.addEventListener('mousemove', function(e){
   		if (running) {
   			ctx.clearRect(0,0, canvas.width, canvas.height);
-			//ctx.fillStyle = 'rgba(0,0,0,255)';
+			ctx.fillStyle = 'rgba(0,0,0,255)';
 			for(var i = 0; i < stars.length; i++){
 				stars[i].reDraw();
+			}
+			for(var i = 0; i < asteriods.length; i++){
+				for(var index = 0; index < asteriods[i].length; index++){
+					//asteriods[i][index].draw();
+				}
 			}
 			var adjacentSide = e.pageY - Top - spaceShip.getY();
 			var oppositeSide = e.pageX - Left - spaceShip.getX();
@@ -733,6 +742,7 @@ function MediumAsteriod(passX, passY, directionAngle, passCtx){
 	this.ctx = passCtx;
 	this.vx = Math.sin(Math.PI/180 * this.currentDirectionAngle);
 	this.vy = Math.cos(Math.PI/180 * this.currentDirectionAngle);
+	this.color = 'yellow';
 }
 function SmallAsteriod(passX, passY, directionAngle, passCtx){
 	this.x = passX;
@@ -742,6 +752,7 @@ function SmallAsteriod(passX, passY, directionAngle, passCtx){
 	this.ctx = passCtx;
 	this.vx = Math.sin(Math.PI/180 * this.currentDirectionAngle);
 	this.vy = Math.cos(Math.PI/180 * this.currentDirectionAngle);
+	this.color = 'green';
 }
 function LargeAsteriod(passX, passY, directionAngle, passCtx){
 	this.x = passX;
@@ -761,7 +772,6 @@ LargeAsteriod.prototype.draw = function(){
 	this.ctx.arc(this.x, this.y, this.radius,0,2*Math.PI);
 	this.ctx.fillStyle = this.color;
 	this.ctx.fill(); 
-	this.ctx.stroke();
 	this.ctx.closePath();
 }
 LargeAsteriod.prototype.moveForward = function(){
@@ -769,28 +779,28 @@ LargeAsteriod.prototype.moveForward = function(){
 	this.vy -= Math.cos(radians);
 	this.vx += Math.sin(radians);
 }
-LargeAsteriod.prototype.changeDirection = function(){
+LargeAsteriod.prototype.changeDirection = function(newAngle){
+	this.currentDirectionAngle = newAngle;
 	var radians = Math.PI/180 * this.currentDirectionAngle;
-	this.vy = -this.vy;
-	this.vx = -this.vx;
+	this.vy = -(Math.cos(radians));
+	this.vx = Math.sin(radians);
 }
 LargeAsteriod.prototype.detectAsteriodCollision = function(asteriod){
 	var xDiff = this.x - asteriod.x;
 	var yDiff = this.y - asteriod.y;
 	var distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 	if(distance < this.radius + asteriod.radius){
-		distance -= this.radius + asteriod.radius - distance;
-		if(xDiff < yDiff){
-			this.vy = -this.vy;
+		if(xDiff > yDiff){
 			asteriod.vy = -asteriod.vy;
-		}else if(xDiff > yDiff){
-			this.vx = -this.vx;
+			this.vy = -this.vy;
+		}else if(xDiff <= yDiff){
 			asteriod.vx = -asteriod.vx;
+			this.vx = -this.vx;
 		}else{
-			this.vx = -this.vx;
 			asteriod.vx = -asteriod.vx;
-			this.vy = -this.vy;
+			this.vx = -this.vx;
 			asteriod.vy = -asteriod.vy;
+			this.vy = -this.vy;
 		}
 		return true;
 	}
