@@ -130,7 +130,7 @@ gulp.task('sassGraphics', function() {
 
 // Concatenate & Minify JS
 gulp.task('scriptsGraphics', function() {
-    return gulp.src('Graphics/js/*.js')
+    return gulp.src(['Graphics/js/*.js''Graphics/js/BreakOut/*.js'])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('Graphics/js/homePage'))
         .pipe(rename('all.min.js'))
